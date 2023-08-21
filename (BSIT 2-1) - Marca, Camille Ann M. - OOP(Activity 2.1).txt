@@ -1,0 +1,83 @@
+import java.util.Scanner;
+import java.util.Random; 
+
+public class rollDice {
+
+	public static void main(String[] args)
+	{
+		Scanner scan = new Scanner(System.in);
+		Random rndm = new Random();
+		int num, roll = 0;
+		int rndmNum1, rndmNum2;
+		char ans;
+		
+		
+		System.out.println("=======================================");
+		System.out.println("Activity 2.1");
+		System.out.println("Program by: Camille Ann M. Marca");
+		System.out.println("BSIT 2-1");
+		System.out.println("=======================================\n");
+		
+		
+		System.out.println("What is the sum you want to bet?");
+		num = scan.nextInt();
+		System.out.println("\n");
+		
+		System.out.println("*******************|START|*******************");
+		
+		do 
+		{	
+			if (num < 2 || num > 12)
+		        {
+		        	System.out.println("\n~|ERROR|~");
+		        	break;
+		        }
+			
+			roll++;
+			
+				int total = 0;
+				
+		        rndmNum1 = rndm.nextInt(6) + 1;
+		        rndmNum2 = rndm.nextInt(6) + 1;
+		        total = rndmNum1 + rndmNum2;
+	       
+	
+				System.out.println("Your " + (roll) + " roll has the sum of " + total);
+
+			       
+		        if (total == num)
+			        {
+			        	System.out.println("\n~You got it! for the " + (roll) + " time!!~");
+			        	break;
+			        }
+			
+		        if (roll == 10)
+					{
+						System.out.println("\n~You ran out of tries! Better Luck Next Time :)~");
+						break;
+					}
+
+				System.out.println("Try again? <y/n>");
+				ans = scan.next().charAt(0);
+				
+				if (ans == 'n')
+		        {
+		        	System.out.println("\n~THANK YOU FOR USING THE PROGRAM~");
+		        	break;
+		        }
+		
+				if (ans != 'y')
+				{
+					System.out.println("\n~INVALID INPUT~");
+					break;
+				}
+			
+		}
+		while (ans == 'y');  
+		
+		System.out.println("******************|GAMEOVER|*****************\n");
+		System.out.println("=================|END PROGRAM|===============");
+		scan.close();
+	}
+}
+
